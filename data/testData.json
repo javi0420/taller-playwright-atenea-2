@@ -1,0 +1,26 @@
+{
+    "usuarioValido": {
+        "nombre": "Francisco",
+        "apellido": "Lindo",
+        "email": "valido@valido.com",
+        "contraseña": "Test1234valido@valido.com"
+    },
+    "usuarioInvalido": {
+        "nombre": "Francisco",
+        "apellido": "Lindo",
+        "email": "invalido@invalido.es",
+        "contraseña": "Test1234."
+    },
+    "usuarioFormatoEmailInvalido": {
+        "nombre": "Francisco",
+        "apellido": "Lindo",
+        "email": "formatoEmail.es",
+        "contraseña": "Test1234."
+    },
+    "usuarioRecibeDineroTransferencia": {
+        "nombre": "usuarioRecibe",
+        "apellido": "Dinero",
+        "email": "usuarioRecibe@recibe.com",
+        "contraseña": "Test-1234."
+    }
+}
