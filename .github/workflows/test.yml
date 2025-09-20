@@ -79,7 +79,7 @@ jobs:
       - name: Esperar frontend
         run: wait-on http://localhost:3000
 
-      # Ejecuta los tests end-to-end con Playwright
+     # Ejecuta los tests end-to-end con Playwright
       - name: Instalar y ejecutar pruebas e2e con Playwright
         run: |
           cd tests
