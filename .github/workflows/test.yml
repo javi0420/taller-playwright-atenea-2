@@ -82,6 +82,14 @@ jobs:
       # Ejecuta los tests end-to-end con Playwright
       - name: Instalar y ejecutar pruebas e2e con Playwright
         run: |
-          cd test
+          cd tests
+          npx install
           npx playwright install
-          npx playwright test
+          npx playwright test --reporter=html
+
+      - name: Guardar reporters como artefactos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: ./playwright-report
