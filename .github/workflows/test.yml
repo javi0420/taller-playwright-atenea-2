@@ -83,7 +83,7 @@ jobs:
       - name: Instalar y ejecutar pruebas e2e con Playwright
         run: |
           cd tests
-          npx install
+          npm install
           npx playwright install
           npx playwright test --reporter=html
 
