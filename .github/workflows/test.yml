@@ -27,26 +27,26 @@ jobs:
       # Clona el repositorio del proyecto Athena Redux Bank
       - name: Clonar repo Athena Redux Bank
         run: |
-          git clone git@github.com:Atenea-Conocimientos/redux-athena-bank.git
+          git clone git@github.com:Atenea-Conocimientos/redux-athena-bank.git app
 
       # Crea el archivo .env con las variables de entorno necesarias para el backend
       - name: crear archivo .env para backend
         run: |
-          echo "MONGO_URI=${{ env.MONGO_URI }}" > backend/.env
-          echo "JWT_SECRET=${{ env.JWT_SECRET }}" >> backend/.env
-          echo "PORT=${{ env.PORT }}" >> backend/.env
-          echo "VITE_API_URL=${{ env.VITE_API_URL }}" >> backend/.env
+          echo "MONGO_URI=${{ env.MONGO_URI }}" > app/backend/.env
+          echo "JWT_SECRET=${{ env.JWT_SECRET }}" >> app/backend/.env
+          echo "PORT=${{ env.PORT }}" >> app/backend/.env
+          echo "VITE_API_URL=${{ env.VITE_API_URL }}" >> app/backend/.env
           
       # Instala todas las dependencias necesarias para el backend
       - name: Instalar dependencias de backend
         run: |
-          cd redux-athena-bank/backend
+          cd app/backend
           npm install
 
       # Inicia el servidor backend en modo desarrollo y guarda los logs
       - name: Construir backend
         run: |
-          cd redux-athena-bank/backend
+          cd app/backend
           npm run dev > backend.log 2>&1 &
       
       # Instala la herramienta wait-on para poder esperar a que los servicios estén disponibles
@@ -60,7 +60,7 @@ jobs:
       # Instala todas las dependencias necesarias para el frontend
       - name: Instalar dependencias de frontend
         run: |
-          cd redux-athena-bank/frontend
+          cd app/frontend
           npm install
         env:
           VITE_API_URL: ${{ env.VITE_API_URL }}
@@ -68,7 +68,7 @@ jobs:
       # Inicia el servidor frontend en modo desarrollo y guarda los logs
       - name: Ejecutar frontend
         run: |
-          cd redux-athena-bank/frontend
+          cd app/frontend
           npm run dev > frontend.log 2>&1 &
 
       # Espera a que el frontend esté disponible en el puerto 3000
