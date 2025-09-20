@@ -24,10 +24,10 @@ jobs:
       - name: Checkout repo actual
         uses: actions/checkout@v3
 
-      # Clona el repositorio del proyecto Athena Redux Bank
+      # Clona el repositorio del proyecto Athena Redux Bank, he creado un fork del proyecto original de ateneaConocimientos para poder ejecutar sin problema si hay un cambio en el repo original
       - name: Clonar repo Athena Redux Bank
         run: |
-          git clone https://github.com/Atenea-Conocimientos/redux-athena-bank.git app
+          git clone git@github.com:javi0420/redux-athena-bank.git app
 
       # Crea el archivo .env con las variables de entorno necesarias para el backend
       - name: crear archivo .env para backend
@@ -78,3 +78,10 @@ jobs:
       # Espera a que el frontend esté disponible en el puerto 3000
       - name: Esperar frontend
         run: wait-on http://localhost:3000
+
+      # Ejecuta los tests end-to-end con Playwright
+      - name: Instalar y ejecutar pruebas e2e con Playwright
+        run: |
+          cd test
+          npx playwright install
+          npx playwright test
